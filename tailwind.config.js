@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors:{
+        primary:"#F2C300"
+      },
       fontFamily: {
         ruddy:['Ruddy','sans-serif']
       }
