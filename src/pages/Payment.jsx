@@ -63,17 +63,33 @@ const Payment = ({ amount }) => {
   }, [])
 
   return (
-    <div className="h-screen font-ruddy flex flex-col bg-bg-light items-center justify-around px-20 w-full">
+    <div className="h-screen font-ruddy flex flex-col bg-bg-light items-center py-20 gap-y-20 px-20 w-full">
         <aside className='text-primary-dark font-ruddy self-start justify-self-start '>
-                <h1 className='text-primary-dark font-ruddy text-9xl font-bold '>AnimeCon</h1>
-                <p className='text-8xl'>Hubli</p>
-            </aside>
-      <button
-        className="bg-black font-bold text-white py-2 px-4 pr-10 -skew-x-6 -rotate-2"
-        onClick={() => razorpayHandler()}
-      >
-        Pay!
-      </button>
+            <h1 className='text-primary-dark font-ruddy text-7xl font-bold '>AnimeCon</h1>
+            <p className='text-6xl'>Hubli</p>
+        </aside>
+        <main className="flex items-end">
+            <article className="text-left mr-24 space-y-8 text-2xl">
+                <p><b>Non-Refundable Payments:</b> All ticket purchases are final and non-refundable, except in the event of event cancellation</p>
+                <p><b>Payment Confirmation:</b> Your ticket is confirmed only after full payment is successfully processed</p>
+                <p><b>Resale Prohibited:</b> Tickets are non-transferable and cannot be resold or exchanged</p>
+                <p><b>Liability:</b> The event organizers are not responsible for lost or stolen items or any technical payment issues beyond our control.</p>
+            </article>
+        
+            <section className="relative flex flex-col w-60 space-y-6">
+                <aside className="flex flex-col items-end text-2xl space-y-2">
+                    <b className=" text-nowrap">Total Price</b>
+                    <b >1200 Rs</b>
+                </aside>
+                <button
+                    className="bg-black font-bold text-white py-3 px-4 pr-10 -skew-x-12 -rotate-3 z-10 transition-all ease-linear"
+                    onClick={() => razorpayHandler()}
+                >
+                    Pay now
+                </button>
+                <button className="absolute -bottom-1 -right-2.5 left-0 bg-secondary font-bold text-white py-3 px-4 pr-10 transition-all ease-linear -skew-x-12 -rotate-2">Pay!</button>
+            </section>
+        </main>
     </div>
   )
 }
