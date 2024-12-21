@@ -9,6 +9,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-default-resizer::-webkit-resizer {
+  display: none;
+}
+
 @tailwind base;
 
 @font-face {

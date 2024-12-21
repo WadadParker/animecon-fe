@@ -6,7 +6,7 @@ import Payment from "./pages/Payment"
 function App() {
 
   return (
-  <div>
+  <div className="">
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<Home />} />
