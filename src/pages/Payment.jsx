@@ -63,9 +63,9 @@ const Payment = ({ amount }) => {
   }, [])
 
   return (
-    <div className="flex items-center justify-center w-full h-full">
+    <div className="h-screen font-ruddy flex bg-bg-light items-center justify-center w-full">
       <button
-        className="bg-gradient-to-r from-[#407bff] to-[#f90707] text-white py-2 px-4 rounded-xl"
+        className="bg-black font-bold text-white py-2 px-4 pr-10 -skew-x-6 -rotate-2"
         onClick={() => razorpayHandler()}
       >
         Pay!

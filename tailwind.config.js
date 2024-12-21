@@ -7,7 +7,10 @@ export default {
   theme: {
     extend: {
       colors:{
-        primary:"#F2C300"
+        primary:"#F2C300",
+        bg:{
+          light:"#FFFCEC"
+        }
       },
       fontFamily: {
         ruddy:['Ruddy','sans-serif']
