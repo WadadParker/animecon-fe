@@ -63,7 +63,11 @@ const Payment = ({ amount }) => {
   }, [])
 
   return (
-    <div className="h-screen font-ruddy flex bg-bg-light items-center justify-center w-full">
+    <div className="h-screen font-ruddy flex flex-col bg-bg-light items-center justify-around px-20 w-full">
+        <aside className='text-primary-dark font-ruddy self-start justify-self-start '>
+                <h1 className='text-primary-dark font-ruddy text-9xl font-bold '>AnimeCon</h1>
+                <p className='text-8xl'>Hubli</p>
+            </aside>
       <button
         className="bg-black font-bold text-white py-2 px-4 pr-10 -skew-x-6 -rotate-2"
         onClick={() => razorpayHandler()}
