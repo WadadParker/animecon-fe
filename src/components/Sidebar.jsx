@@ -11,49 +11,43 @@ const CoolAFCircle = ({classname}) => {
     )
 }
 
-const NavCard = () => {
+const NavCard = ({path,text}) => {
+    const location = useLocation();
+    const isActive = useCallback(
+        (path) => location.pathname === path,
+        [location.pathname]
+      );
     return (
-        <li className='flex flex-col items-center'>
+        <li className='flex flex-col items-center hover:cursor-pointer'>
                     <div className='w-fit relative'>
-                        <section className=' bg-primary-dark size-[82px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -mt-0.5'>
-                        </section>
+                        {isActive(path) && <section className=' bg-primary-dark size-[82px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -mt-0.5'>
+                        </section>}
                         <section className='bg-black size-[87px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'></section>
                         <CoolAFCircle classname={'z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'} />
                     </div>
-                    <p className=' text-2xl text-white font-bold z-20 self-end pt-2'
+                    <p className={` ${text!="Scratch Cards"?"text-[22px] pr-3":"text-lg text-nowrap"}  text-white font-bold z-20 self-end pt-2`}
                     //  style={{textShadow: ` 2.09px 2.09px 0 black,-2.09px 2.09px 0 black,2.09px -2.09px 0 black,-2.09px -2.09px 0 black`}}
                     style={{textShadow:"2px 2px  black , -2px 2px 0 black, -2px -2px 0 black , 2px -2px 0 black "}}
                     >
-                        Home
+                        {text}
                     </p>
                 </li>
     )
 }
 
 const Sidebar = () => {
-    const location = useLocation();
-    const isActive = useCallback(
-        (path) => location.pathname === path,
-        [location.pathname]
-      );
+    
+    const navList = [{path:"/home",text:"Home"},{path:"/scratch",text:"Scratch Cards"},{path:"/polls",text:"Polls"},{path:"/chat",text:"CHAT"}]
 
   return (
-    <div className='h-screen bg-black pl-10 pr-3.5 font-ruddy'>
-        <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-60 items-center pr-4 pl-5'>
-            <ul className='space-y-6 text-right'>
-                <NavCard />
-                <li>
-                    <div></div>
-                    <p>Scratch Cards</p>
-                </li>
-                <li>
-                    <div></div>
-                    <p>Polls</p>
-                </li>
-                <li>
-                    <div></div>
-                    <p>Chat</p>
-                </li>
+    <div className='h-screen bg-black pl-10 pr-4 font-ruddy'>
+        <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-44 items-center pr-4 pl-5'>
+            <ul className='space-y-20 text-right'>
+                {
+                    navList.map(({path,text})=>(
+                        <NavCard path={path} text={text} />
+                    ))
+                }
             </ul>
         </main>
     </div>
