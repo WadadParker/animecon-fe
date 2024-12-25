@@ -20,7 +20,7 @@ const Sidebar = () => {
                         <section className='bg-black size-10 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'></section>
                         <CoolAFCircle />
                     </div>
-                    <p>Home</p>
+                    <p className=' text-2xl text-white font-bold' style={{textShadow: ` 2.09px 2.09px 0 black,    -2.09px 2.09px 0 black,2.09px -2.09px 0 black,-2.09px -2.09px 0 black`}}>Home</p>
                 </li>
                 <li>
                     <div></div>
