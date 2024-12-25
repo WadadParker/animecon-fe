@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { useLocation } from 'react-router-dom';
 
 const CoolAFCircle = ({classname}) => {
     return (
@@ -10,12 +11,9 @@ const CoolAFCircle = ({classname}) => {
     )
 }
 
-const Sidebar = () => {
-  return (
-    <div className='h-screen bg-black pl-10 pr-3.5 font-ruddy'>
-        <main className='bg-primary-blue h-full w-28 -skew-x-[1.2deg] flex flex-col justify-center items-center px-2'>
-            <ul className='space-y-6 text-right'>
-                <li className='flex flex-col items-center'>
+const NavCard = () => {
+    return (
+        <li className='flex flex-col items-center'>
                     <div className='w-fit relative'>
                         <section className=' bg-primary-dark size-[82px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -mt-0.5'>
                         </section>
@@ -29,6 +27,21 @@ const Sidebar = () => {
                         Home
                     </p>
                 </li>
+    )
+}
+
+const Sidebar = () => {
+    const location = useLocation();
+    const isActive = useCallback(
+        (path) => location.pathname === path,
+        [location.pathname]
+      );
+
+  return (
+    <div className='h-screen bg-black pl-10 pr-3.5 font-ruddy'>
+        <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-60 items-center pr-4 pl-5'>
+            <ul className='space-y-6 text-right'>
+                <NavCard />
                 <li>
                     <div></div>
                     <p>Scratch Cards</p>
