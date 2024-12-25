@@ -29,7 +29,6 @@ const LandingPage = () => {
         console.log(maxScroll,scrolled,scrollPercentage)
           setPercentage(scrollPercentage);
         }
-        e.preventDefault();
       };
 
   return (
