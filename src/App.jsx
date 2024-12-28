@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import LandingPage from "./pages/LandingPage"
 import { Payment } from "./pages/Payment"
-import Sidebar from "./components/Sidebar"
+import Sidebar from "./components/SideBar/Sidebar"
 
 function App() {
   return (
