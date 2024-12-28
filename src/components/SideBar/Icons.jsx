@@ -80,7 +80,33 @@ const Icons = ({text}) => {
             )
 
         case "CHAT":
-            return <h1>Chat</h1>
+            return (
+            <div className="relative ml-6">
+                <main className="relative z-10 mb-2">
+                    <section className='absolute right-1 bottom-1 w-16 h-10 border-black rounded-t-xl rounded-bl-xl -rotate-6 bg-white' style={{borderWidth:"0.63px"}}>
+                    </section>
+                    <section className='flex justify-center items-center w-16 h-10 border-black rounded-t-xl rounded-bl-xl -rotate-6 bg-white' style={{borderWidth:"0.63px"}}>
+                        <ul className=' w-9 h-full flex flex-col gap-y-[5px] justify-center'>
+                            <li className='bg-black h-0.5 rounded-full'></li>
+                            <li className='bg-black h-0.5 rounded-full '></li>
+                            <li className='bg-black h-0.5 rounded-full '></li>
+                            <li className='bg-black h-0.5 rounded-full w-2/3 '></li>
+                        </ul>
+                    </section>
+                </main>
+                <div className='absolute -left-5 top-11 '>
+                     <section className='absolute -right-[3px] bottom-[2.5px] w-11 h-7 border-black rounded-t-lg rounded-br-lg bg-white rotate-1' style={{borderWidth:"0.63px"}}>
+                    </section>
+                    <section className='flex justify-center items-center w-11 h-7 border-black rounded-t-lg rounded-br-lg bg-white rotate-1' style={{borderWidth:"0.63px"}}>
+                        <ul className='w-full px-1.5 h-full flex flex-col gap-y-1 justify-center'>
+                            <li className='bg-black h-[1px] rounded-full'></li>
+                            <li className='bg-black h-[1px] rounded-full '></li>
+                            <li className='bg-black h-[1px] rounded-full '></li>
+                            <li className='bg-black h-[1px] rounded-full w-1/2 self-end '></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>)
 
         default:
             return <h1>katen Kyokotsu</h1>
