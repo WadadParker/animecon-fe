@@ -47,7 +47,7 @@ const Sidebar = () => {
   return (
     <div className='h-screen bg-black pl-10 pr-4 font-ruddy'>
         <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-44 items-center pr-4 pl-5'>
-            <ul className='space-y-20 text-right'>
+            <ul className='space-y-24 text-right'>
                 {
                     navList.map(({path,text,index})=>(
                         <NavCard key={index} path={path} text={text} />
