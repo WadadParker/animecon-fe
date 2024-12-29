@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useCallback } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import Icons from './Icons';
 
 const CoolAFCircle = ({classname}) => {

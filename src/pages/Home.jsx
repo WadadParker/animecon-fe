@@ -1,4 +1,27 @@
+import { useState } from "react";
 
+const TicketCard = () => {
+  // const [qrImg, setQrImg] = useState('');
+  // const generateQrCode = async () => {
+  //   try {
+  //     // Convert the input text into a data URL for the QR code image
+  //     const url = await QRCode.toDataURL(text);
+  //     setQrImg(url);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  return (
+    <aside className="flex flex-col items-center justify-around w-full h-full bg-bg-light "
+     style={{clipPath:"polygon(7% 1.5%,99.7% 0.4%,100% 94%,1% 95.65%)"}}>
+      <header className="" style={{WebkitTextStroke:"1.84px black",textShadow:"3.68px 4.29px 0 black"}}>
+        <h1 className="text-primary-dark font-bold text-6xl text-nowrap">ANIME CON</h1>
+        <h2 className="text-primary-dark font-bold text-5xl">Hubli</h2>
+      </header>
+      dwd
+    </aside>
+  )
+}
 
 const Home = () => {
   return (
@@ -14,11 +37,7 @@ const Home = () => {
           <main className=" w-[83.5%]  bg-primary-red p-1"
           style={{clipPath:"polygon(7% 1.5%,99.7% 0.4%,100% 94%,1% 95.65%)"}}
           >
-            <aside className=" w-full h-full bg-bg-light "
-          style={{clipPath:"polygon(7% 1.5%,99.7% 0.4%,100% 94%,1% 95.65%)"}}
-          >
-            
-          </aside>
+            <TicketCard />
           </main>
         </div>
       </section>
