@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router';
 
 const LandingPage = () => {
     const [percentage,setPercentage] = useState(0);
@@ -29,7 +29,6 @@ const LandingPage = () => {
         console.log(maxScroll,scrolled,scrollPercentage)
           setPercentage(scrollPercentage);
         }
-        e.preventDefault();
       };
 
   return (
