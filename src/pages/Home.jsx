@@ -1,4 +1,4 @@
-import { use, useEffect, useMemo, useState } from "react"
+import { use } from "react"
 import QRCode from 'qrcode';
 
 const generateQRCode = async () => {
@@ -9,9 +9,7 @@ const generateQRCode = async () => {
 const qrCodePromise = generateQRCode();
 
 const TicketCard = () => {
-  console.log(generateQRCode())
   const qrCode = use(qrCodePromise)
-  console.log("This is qr code",qrCode)
 
   return (
     <aside className="flex flex-col items-center pt-12 px-3 space-y-10 w-full h-full bg-bg-light "

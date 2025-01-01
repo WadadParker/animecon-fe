@@ -49,7 +49,7 @@ const Sidebar = () => {
         <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-44 items-center pr-4 pl-5'>
             <ul className='space-y-24 text-right'>
                 {
-                    navList.map(({path,text,index})=>(
+                    navList.map(({path,text},index)=>(
                         <NavCard key={index} path={path} text={text} />
                     ))
                 }
