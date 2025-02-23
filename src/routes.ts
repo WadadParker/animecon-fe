@@ -8,6 +8,7 @@ import {
     // * matches all URLs, the ? makes it optional so it will match / as well
     route("/","./pages/LandingPage.tsx"),
     route("/signup","./pages/Signup.tsx"),
+    route("/login","./pages/Login.tsx"),
     route("/payment","./pages/Payment.tsx"),
     layout("Layout.tsx",[
     route("/home","./pages/Home.tsx")
