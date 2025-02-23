@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router';
 
-const LandingPage = () => {
+export default function LandingPage() {
     const [percentage,setPercentage] = useState(0);
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     const navigate = useNavigate();
 
@@ -52,5 +52,3 @@ const LandingPage = () => {
     </div>
   )
 }
-
-export default LandingPage
