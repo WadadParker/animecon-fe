@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage"
 
 import { Payment } from "./pages/Payment"
 import Layout from "./Layout"
+import Signup from "./pages/Signup"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" element={<Layout />} >
           <Route index element={<Home />} />
         </Route>
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   )
