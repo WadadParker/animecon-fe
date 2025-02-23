@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const Payment = ({ amount }) => {
+export default function Payment (amount=1300) {
   console.log("LOG", amount)
   const checkoutHandler = () => {
     var option = {
@@ -93,5 +93,3 @@ const Payment = ({ amount }) => {
     </div>
   )
 }
-
-export { Payment }

@@ -36,7 +36,7 @@ const TicketCard = () => {
   )
 }
 
-const Home = () => {
+export default function Home () {
   return (
     <div className='font-ruddy w-full relative flex'>
       <main className="bg-bg-light h-full pt-20 pl-14 w-[60%]">
@@ -57,5 +57,3 @@ const Home = () => {
     </div>
   )
 }
-
-export default Home
