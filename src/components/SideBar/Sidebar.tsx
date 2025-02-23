@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useCallback } from 'react'
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import Icons from './Icons';
 
 const CoolAFCircle = ({classname}:{classname:string}) => {
@@ -47,6 +47,7 @@ const Sidebar = () => {
   return (
     <div className='h-screen bg-black pl-10 pr-4 font-ruddy'>
         <main className='bg-primary-blue h-full w-[146px] -skew-x-[1.2deg] flex flex-col justify-start pt-44 items-center pr-4 pl-5'>
+        <Link to={"/"} className='text-white text-4xl absolute z-30 top-4'>ACH</Link>
             <ul className='space-y-24 text-right'>
                 {
                     navList.map(({path,text},index)=>(
