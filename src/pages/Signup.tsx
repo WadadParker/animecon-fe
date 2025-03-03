@@ -2,13 +2,15 @@ import { useRef } from "react";
 import type { Route } from "./+types/Signup";
 import { Link, useFetcher } from "react-router";
 import { formDataCoversion } from "../Utils/Functions";
+import { signup, UserDetails } from "../services/auth/Signup";
 
 export async function clientAction({request}: Route.ClientActionArgs) {
   console.log(request)
   let formData = await request.formData();
-  const data = formDataCoversion(formData)
+  const data:UserDetails = formDataCoversion(formData)
+  const response = await signup(data)
 
-  console.log(data)
+  console.log(response)
 }
 
 const Signup = (_: Route.ComponentProps) => {
