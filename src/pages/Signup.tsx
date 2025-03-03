@@ -1,16 +1,18 @@
 import { useRef } from "react";
 import type { Route } from "./+types/Signup";
-import { Link, useFetcher } from "react-router";
+import { Link,  useFetcher } from "react-router";
 import { formDataCoversion } from "../Utils/Functions";
 import { signup, UserDetails } from "../services/auth/Signup";
 
 export async function clientAction({request}: Route.ClientActionArgs) {
   console.log(request)
   let formData = await request.formData();
+
   const data:UserDetails = formDataCoversion(formData)
   const response = await signup(data)
 
   console.log(response)
+  return response;
 }
 
 const Signup = (_: Route.ComponentProps) => {
@@ -52,7 +54,7 @@ const Signup = (_: Route.ComponentProps) => {
             <input required className="border bg-transparent outline-none rounded-lg px-4 py-3" type="password" name="confirmPassword" placeholder="where_is_konoha?" onInput={validatePasswords}/>
           </label>
 
-          <button type="submit" className="border border-white rounded-xl text-center px-4 py-3 hover:text-green-500">Sign Up!</button>
+          <button type="submit" name="intent" value="submit" className="border border-white rounded-xl text-center px-4 py-3 hover:text-green-500">Sign Up!</button>
         </fetcher.Form>
         <p className="text-white">Alredy created an Account? <Link to={"/login"} className="text-violet-400 hover:underline">Login</Link> </p>
     </div>
