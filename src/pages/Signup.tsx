@@ -1,15 +1,46 @@
 import { useRef } from "react";
 import type { Route } from "./+types/Signup";
-import { Link,  useFetcher } from "react-router";
+import { isRouteErrorResponse, Link,  useFetcher , data } from "react-router";
 import { formDataCoversion } from "../Utils/Functions";
 import { signup, UserDetails } from "../services/auth/Signup";
 
+export function ErrorBoundary({error}:Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error)) {
+    console.log(error)
+    const status = error.data.init.status
+    return (
+      <div className="bg-black/55 fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+        <section className="bg-white p-4 border rounded-lg text-black space-y-4 text-3xl">
+          <h1>
+            Error! {status}
+          </h1>
+          <p>{error.data.data}</p>
+          {status==403 && <Link to={"/login"} className="text-violet-500 hover:underline inline-block">Go to Login</Link>}
+        </section>
+      </div>
+    );
+  } else if (error instanceof Error) {
+    return (
+      <div className="bg-black/55 fixed top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+        <section className="bg-white p-4 border rounded-lg text-black space-y-4">
+          <h1>Error. Please contact admin on Instagram if issue persists</h1>
+          <p>{error.message}</p>
+          <p>The stack trace is:</p>
+          <pre>{error.stack}</pre>
+        </section>
+      </div>
+    );
+  } else {
+    return <h1>Unknown Error</h1>;
+  }
+}
+
 export async function clientAction({request}: Route.ClientActionArgs) {
-  console.log(request)
+  throw data("Account already exists, please login",403)
   let formData = await request.formData();
 
-  const data:UserDetails = formDataCoversion(formData)
-  const response = await signup(data)
+  const data1:UserDetails = formDataCoversion(formData)
+  const response = await signup(data1)
 
   console.log(response)
   return response;

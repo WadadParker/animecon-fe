@@ -18,7 +18,8 @@ export const signup = async( userDetails:UserDetails ) => {
     )
 
     const data = await response.json();
-    return data }
+    return {...data , status:response.status }
+}
     catch(error) {
         console.log(error)
     }
