@@ -1,8 +1,8 @@
 
 export const formDataCoversion = (formData:FormData) => {
-    const formObject: Record<string, string | File> = {};
+    const formObject: Record<string, string> = {};
     for (const [key, value] of formData.entries()) {
-        formObject[key] = value instanceof File ? value : String(value);
+        formObject[key] = String(value);
       }
     return formObject
 }

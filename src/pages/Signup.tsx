@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import type { Route } from "./+types/Signup";
-import { isRouteErrorResponse, Link,  useFetcher , data } from "react-router";
+import { isRouteErrorResponse, Link,  useFetcher , data, redirect } from "react-router";
 import { formDataCoversion } from "../Utils/Functions";
 import { signup, UserDetails } from "../services/auth/Signup";
 
@@ -36,14 +36,15 @@ export function ErrorBoundary({error}:Route.ErrorBoundaryProps) {
 }
 
 export async function clientAction({request}: Route.ClientActionArgs) {
-  throw data("Account already exists, please login",403)
   let formData = await request.formData();
-
-  const data1:UserDetails = formDataCoversion(formData)
+  
+  const data1 = formDataCoversion(formData)
   const response = await signup(data1)
-
+  
   console.log(response)
-  return response;
+  if (response.status == 403)
+    throw data("Account already exists, please login",403)
+  return redirect("/payment");
 }
 
 const Signup = (_: Route.ComponentProps) => {
