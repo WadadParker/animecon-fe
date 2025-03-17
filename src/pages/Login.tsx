@@ -39,17 +39,23 @@ export async function clientAction({request}: Route.ClientActionArgs) {
 
   const data1 = formDataCoversion(formData)
   const response = await login(data1)
+
+  let errors = false
   
   console.log(response)
+  if (response.status == 400){
+    errors = true;
+    return data( { errors }, { status: 400})
+  }
   if (response.status != 200)
     throw data("Something went wrong. Please contact admin if issue persists",response.status)
-  if(response?.paid)
-    return redirect("/home");
-  return redirect("/payment")
+  return response?.paid ? redirect("/home") : redirect("/payment")
 }
 
 const Login = (_: Route.ComponentProps) => {
   let fetcher = useFetcher();
+  let errors = fetcher.data?.data?.errors;
+
   return (
     <div className="flex flex-col bg-black grow text-2xl justify-center items-center h-screen gap-y-8 font-ruddy">
         <h1 className="text-white text-6xl ">Login </h1>
@@ -65,6 +71,7 @@ const Login = (_: Route.ComponentProps) => {
             Password
             <input className="border bg-transparent outline-none rounded-lg px-4 py-3" type="password" name="password" placeholder="where_is_konoha?" />
           </label>
+          {errors && <b className="text-red-600 text-xs text-center">Invalid Password or Email!</b>}
 
           <button type="submit" className="border border-white rounded-xl text-center px-4 py-3 hover:text-green-500">Let's Gooo!</button>
         </fetcher.Form>
