@@ -1,8 +1,4 @@
-import Home from "./pages/Home"
-import LandingPage from "./pages/LandingPage"
 
-import { Payment } from "./pages/Payment"
-import Layout from "./Layout"
 
 function App() {
   return (
