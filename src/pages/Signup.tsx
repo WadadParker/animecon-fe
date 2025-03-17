@@ -2,7 +2,7 @@ import { useRef } from "react";
 import type { Route } from "./+types/Signup";
 import { isRouteErrorResponse, Link,  useFetcher , data, redirect } from "react-router";
 import { formDataCoversion } from "../Utils/Functions";
-import { signup, UserDetails } from "../services/auth/Signup";
+import { signup } from "../services/auth/Auth";
 
 export function ErrorBoundary({error}:Route.ErrorBoundaryProps) {
   if (isRouteErrorResponse(error)) {
@@ -31,7 +31,7 @@ export function ErrorBoundary({error}:Route.ErrorBoundaryProps) {
       </div>
     );
   } else {
-    return <h1>Unknown Error</h1>;
+    return <h1>Unknown Error. Refresh again & if issue persists then Contact Admin on Instagram</h1>;
   }
 }
 
@@ -42,9 +42,11 @@ export async function clientAction({request}: Route.ClientActionArgs) {
   const response = await signup(data1)
   
   console.log(response)
+  if(response.status == 200)
+    return redirect("/payment");
   if (response.status == 403)
     throw data("Account already exists, please login",403)
-  return redirect("/payment");
+  throw data("Error",response.status)
 }
 
 const Signup = (_: Route.ComponentProps) => {
@@ -78,7 +80,7 @@ const Signup = (_: Route.ComponentProps) => {
 
           <label className="flex flex-col gap-y-2">
             <h2 className="flex gap-x-1">Password <span className="text-red-600 text-sm">*</span></h2>
-            <input ref={passwordRef} required className="border bg-transparent outline-none rounded-lg px-4 py-3" type="password" name="password" placeholder="where_is_konoha?" />
+            <input ref={passwordRef} required minLength={6} className="border bg-transparent outline-none rounded-lg px-4 py-3" type="password" name="password" placeholder="where_is_konoha?" />
           </label>
 
           <label className="flex flex-col gap-y-2">
