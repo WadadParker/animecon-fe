@@ -20,6 +20,10 @@ export const signup = async( userDetails:UserDetails ) => {
     )
 
     const data = await response.json();
+
+    if(response.status == 200)
+        localStorage.setItem("JWT",data.jwt)
+
     return {...data , status:response.status }
 }
     catch(error) {
@@ -29,7 +33,6 @@ export const signup = async( userDetails:UserDetails ) => {
 
 export const login = async( userDetails:LoginUserDetails ) => {
     try {
-        console.log("This is working here",`${apiUrl}/users/login`)
     const response = await fetch(`${apiUrl}/users/login`,{
         method:"POST",
         headers: {
@@ -40,6 +43,10 @@ export const login = async( userDetails:LoginUserDetails ) => {
     )
 
     const data = await response.json();
+
+    if(response.status == 200)
+        localStorage.setItem("JWT",data.jwt)
+
     return {...data , status:response.status }
 }
     catch(error) {
